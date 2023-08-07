@@ -1,0 +1,13 @@
+<table class="noborder centpercent">
+<tr class="liste_titre">
+<th>seriel</th>
+<th>ref</th>
+        
+</tr>
+{% for row in data %}
+     <tr class="oddeven">				
+                <td class="nowrap"><a href="/custom/location/views/historymachine.php?id={{row["rowid"]}}">{{row["seriel"]}}</a></td>				
+				<td class="nowrap">{{row['reference']}}</td>
+                </tr>
+{% endfor %}
+</table><br>

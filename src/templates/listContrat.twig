@@ -1,0 +1,14 @@
+<table class="noborder centpercent">
+<tr class="liste_titre">
+<th>ID contrat</th>
+<th>Client</th> 
+<th>Date</th> 
+</tr>
+{% for row in DATA %}
+     <tr class="oddeven">				
+                <td class="nowrap"><a href="/custom/location/views/editContrat.php?id={{row["rowid"]}}">C000{{row["rowid"]}}</a></td>				
+				<td class="nowrap">{{row['client']}}</td>
+                <td class="nowrap">{{row['date_c']}}</td>
+                </tr>
+{% endfor %}
+</table><br>

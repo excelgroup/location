@@ -1,0 +1,42 @@
+<form id="sample_form" action="" method="POST">
+<table class="centpercent notopnoleftnoright table-fiche-title">
+<tbody>
+<tr class="titre">
+<td class="nobordernopadding widthpictotitle valignmiddle col-picto">
+<span class="fas fa-cube valignmiddle widthpictotitle pictotitle" style=" color: #a69944;"></span>
+</td>
+<td class="nobordernopadding valignmiddle col-title">
+</td>
+</tr>
+<tbody>
+</table>
+<div class="tabBar tabBarWithBottom">
+<table class="border centpercent">
+<tbody>
+<tr>
+
+    
+<tr>
+<td class="titlefieldcreate fieldrequired">Seriel</td>
+<td>
+<span class="fas fa-building" style=" color: #6c6aa8;"></span>
+<select name="ref" id="ref" class="flat statut form_data" required>
+<option value="">---seriel---</option>
+{% for row in data %} 
+    <option value="{{row['seriel']}}">{{row['seriel']}}</option>
+{% endfor %}
+</select>
+</td>
+</tr>
+
+
+
+<tbody>
+</table>
+</div>
+    <div class="center">
+        <input type="submit" name="update" id="submit" class="button button-save" value="Enregistrer" onclick="window.location.reload()">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" class="button button-cancel" name="Annuler" value="Annuler">
+    </div>
+</form>

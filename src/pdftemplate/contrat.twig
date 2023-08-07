@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .contract-page {
+  
+            margin: 0 auto;
+            padding: 20px;
+ 
+            page-break-after: always;
+              
+
+
+        }
+
+        h1{
+            text-align: center; /* Aligner le texte au centre */
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-weight: bold; /* Texte solide (gras) */
+            text-decoration: underline; /* Soulignement */  
+        }
+
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin: 20mm auto;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .section-content {
+            margin-left: 20px;
+        }
+
+        .signature {
+
+            position: absolute;
+            top: 75%; /* Placer la signature au début du quatrième quart de la page */
+            right: 10%;
+            left: 10%;
+ 
+        }
+
+        .date{
+            position: absolute;
+            top: 65%; /* Placer la signature au début du quatrième quart de la page */
+
+            float: right; /* Aligner le client à droite */
+        }
+
+        .signature p {
+            margin: 0; /* Supprimer les marges par défaut des paragraphes pour éviter l'espacement inutile */
+            font-weight: bold; /* Texte solide (gras) */
+            text-decoration: underline; /* Soulignement */
+        }
+
+        .client-signature {
+            float: right; /* Aligner le client à droite */
+        }
+
+        .company-signature {
+            float: left; /* Aligner la société à gauche */
+        }
+
+        h3 {
+            font-weight: bold; /* Texte solide (gras) */
+            text-decoration: underline; /* Soulignement */
+            font-size:large;
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+        .ci-ap {
+
+            margin-top:60px;
+            margin-bottom:60px;
+            text-align : right;
+        }    
+        .ci {
+
+            margin-top:40px;
+            margin-bottom:40px;
+
+        }      
+
+
+    </style>
+</head>
+<body>
+    <div class="contract-page">
+
+        <div class="section">
+<h1>CONTRAT DE LOCATION N° CL00{{data['contrat']['rowid']}}/2023</h1>
+<p class="ci"><strong>ENTRE LES SOUSSIGNES,</strong><p>
+<p><strong>UNION SERVICES BUREAU</strong>, Société à Responsabilité Limitée (SARL)
+Ayant son siège social à 122 LOT ZOUBIR LISSASFA - CASABLANCA.
+Représentée au présent contrat par son Gérant, Monsieur Abdessamad SOUHAL.
+</P><P class="ci-ap">Ci-après désigné le « PROPRIETAIRE »,</p>
+
+
+<p><strong>{{data['contrat']['client']}},</strong> Société à Responsabilité Limitée (SARL), ayant son siège social à {{data['contrat']['address']}} - {{data['contrat']['town']}}.
+
+</p><p class="ci-ap">Ci-après désigné le « LOCATAIRE »,</p>
+<h1>IL EST CONVENU CE QUI SUIT</h1>
+</div>
+    </div>
+    <div class="contract-page">
+
+        <!-- Contenu de la deuxième page -->
+        <div class="section">
+ <h3>ARTICLE 1: OBLIGATION D'UNION SERVICES BUREAU</h3>
+<p>Durant la durée du contrat de location, UNION SERVICES BUREAU s'engage en cas de panne à :
+<br>1/ Faire intervenir un technicien sur site pour une maintenance curative sur une demande du client en avisant UNION SERVICES BUREAU par Email au <strong>usbsarl@gmail.com</strong> ou par téléphone n° 05 22 89 47 46 dans un délai de 48 heures.
+<br>2/ Assurer la disponibilité des pièces détachées et consommables pendant la durée du contrat.
+<br>3/ Fournir une assistance téléphonique en complément de toute autre forme d'assistance technique.</p>
+<h3>ARTICLE 2 : OBLIGATION DU CLIENT</h3>
+<p>Le matériel mis en place chez le client demeure en toute circonstance la propriété exclusive d'UNION SERVICES BUREAU, le client est tenu de déclarer à toute saisissante, en cas de tentative de saisie dudit matériel, que ledit matériel appartient exclusivement à UNION SERVICES BUREAU, de manière à pouvoir obtenir la mainlevée de saisie en plus vite.
+Le client s'interdit de manipuler le matériel ou de le déplacer du lieu où il a été installé.
+Le client répondra de toute dégradation consécutive à toute manipulation non autorisée par
+UNION SERVICES BUREAU.
+Le client s'interdit aussi d'utiliser un autre toner que celui d'UNION SERVICES BUREAU dont la marque est EXCEL TONER.
+En cas de faute utilisateur ou de mauvaise manipulation, UNION SERVICES BUREAU, se réserve le droit de facturer les pièces détériorées au tarif en vigueur.
+Le client s'engage à mettre à la disposition d'UNION SERVICES BUREAU un emplacement suffisant menu d'une prise de terre.</p>
+<h3>ARTICLE 3 : PRIX ET MODALITES DE FACTURATION</h3>
+<p>La facturation est établie de façon mensuelle pour la consommation des toners livrés.</p></div></div>
+    <div class="contract-page">
+
+        <!-- Contenu de la deuxième page -->
+        <div class="section">
+
+
+<h3>ARTICLE 4. MODALITES DE PAIEMENT convenues entre les deux parties.</h3>
+<p>Le raglement des factures a-TiNiON SERVICES BUREAU sera effectué selon les conditions
+Tout paiement tardif dos redevances fera sujet à l'annulation du contrat.</p>
+<h3>ARTICLE 5 : DUREE</h3>
+<p>Le présent contrat est conclu pour une durée de <strong>{{data['contrat']['durée']}} mois</strong> à compter de la date de livraison des imprimantes.
+A l'issue de cette période, le contrat se reconduira d'année en année par tacite reconduction sauf dénonciation par l'une ou l'autre des parties par lettre recommandée 2 mois avant la date d'échéance.</p>
+<h3>ARTICLE 6 : LITIGES ET COMPETENCE</h3>
+<p>Tout litige pouvant naitre à l'occasion de l'interprétation ou de l'exécution du présent contrat sera soumis à la compétence du Tribunal de Casablanca.</p>
+<h3>ARTICLE 7: ELECTION DE DOMICILE</h3>
+<p>Les parties déclarent élire domicile en leurs adresses respectives susvisées.</p>
+
+
+
+
+</div>
+        <div class="date">
+            <p>Casablanca le {{data['contrat']['date_c']}}</p>
+        </div>
+
+        <div class="signature">
+            <p class="client-signature">{{data['contrat']['client']}} </p>
+            <p class="client-societe">UNION SERVICES BUREAU </p>
+        </div>
+</div>
+   
+ <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <div class="contract-page">
+>
+        <div class="section">
+<h1>Annex</h1>
+   <table>
+        <tr>
+            <th>Désignation Imprimante</th>
+  
+            <th>Quantité</th>
+        </tr>
+        {% for row in data['annex'] %}
+     <tr>						
+				<td >{{row['reference']}}</td>
+                <td >{{row['qte']}}</td>
+                </tr>
+{% endfor %}
+    </table>
+        <div class="date">
+            <p>Casablanca le {{data['contrat']['date_c']}}</p>
+        </div>
+
+        <div class="signature">
+            <p class="client-signature">{{data['contrat']['client']}} </p>
+            <p class="client-societe">UNION SERVICES BUREAU </p>
+        </div>
+</div>
+ </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<form id="sample_form" action="" method="POST">
+<table class="centpercent notopnoleftnoright table-fiche-title">
+<tbody>
+<tr class="titre">
+<td class="nobordernopadding widthpictotitle valignmiddle col-picto">
+<span class="fas fa-cube valignmiddle widthpictotitle pictotitle" style=" color: #a69944;"></span>
+</td>
+<td class="nobordernopadding valignmiddle col-title">
+</td>
+</tr>
+<tbody>
+</table>
+<div class="tabBar tabBarWithBottom">
+<table class="border centpercent">
+<tbody>
+<tr>
+
+    
+<tr>
+<td class="titlefieldcreate fieldrequired">Machine</td>
+<td>
+<select name="seriel" id="seriel" class="flat statut form_data" required>
+<option value="">--- Choisir une machine ---</option>
+{% for row in data %}
+    <option value="{{row['seriel']}}">{{row['seriel']}}</option>
+{% endfor %}
+</select> 
+</td>
+</tr>
+
+
+<tr>
+<td class="titlefieldcreate fieldrequired">Type D'intervention</td>
+<td>
+<input id="tinter" name="tinter" class="maxwidth200 form_data" maxlength="128" value="" required>
+</select>
+</td>
+</tr>
+
+
+<tr>
+<td class="titlefieldcreate fieldrequired">Cout</td>
+<td>
+<input id="cout" name="cout" class="maxwidth200 form_data" maxlength="128" value="" required>
+</td>
+</tr>
+
+
+<tr>
+<td class="titlefieldcreate">Remarque</td>
+<td>
+<textarea rows="2" cols="25" id="rmq" name="rmq" value="Remarque">
+</textarea>
+
+</td>
+</tr>
+
+
+
+<tbody>
+</table>
+</div>
+    <div class="center">
+        <input type="submit" name="update" id="submit" class="button button-save" value="Enregistrer" onclick="window.location.reload()">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" class="button button-cancel" name="Annuler" value="Annuler">
+    </div>
+</form>
+

@@ -1,0 +1,88 @@
+<span id="message"></span>
+<span id="name_error"></span>
+<span id="email_error"></span>
+<span id="website_error"></span>
+<span id="comment_error"></span>
+<span id="gender_error"></span>
+<form id="sample_form" action="" method="POST">
+<table class="centpercent notopnoleftnoright table-fiche-title">
+<tbody>
+<tr class="titre">
+<td class="nobordernopadding widthpictotitle valignmiddle col-picto">
+<span class="fas fa-cube valignmiddle widthpictotitle pictotitle" style=" color: #a69944;"></span>
+</td>
+<td class="nobordernopadding valignmiddle col-title">
+</td>
+</tr>
+<tbody>
+</table>
+<div class="tabBar tabBarWithBottom">
+<table class="border centpercent">
+<tbody>
+<tr>
+<td class="fieldrequired">Client</td>
+<td>
+<span class="fas fa-building" style=" color: #6c6aa8;"></span>
+<select name="client" id="client" class="flat statut form_data" required>
+<option value="">--- Choisir un Client ---</option>
+{% for row in DATA %}
+    <option value="{{row['nom']}}">{{row['nom']}}</option>
+{% endfor %}
+</select> 
+<a href="/societe/card.php?action=create&amp;client=3&amp;fournisseur=0&amp;backtopage=%2Fdolibarr%2Fcommande%2Fcard.php%3Faction%3Dcreate"><span class="fa fa-plus-circle valignmiddle paddingleft" title="Créer tiers"></span></a>  
+</td>
+</tr>
+
+
+<tr>
+<td class="titlefieldcreate">Durée</td>
+<td>
+<input id="durée" name="durée" class="maxwidth200 form_data" maxlength="128" value="">
+</td>
+</tr>
+
+
+
+<tr>
+<td class="titlefieldcreate">Date</td>
+<td>
+<input type="date" id="date" name="date" class="maxwidth200 form_data" maxlength="128" value="" >
+</td>
+</tr>
+
+<script>
+document.getElementById("date").valueAsDate = new Date();
+</script>
+
+<tr>
+<td class="titlefieldcreate">contact</td>
+<td>
+<input id="contact" name="contact" class="maxwidth200 form_data" maxlength="128" value="">
+</td>
+</tr>
+
+<tr>
+<td class="titlefieldcreate">Remarque</td>
+<td>
+<textarea rows="2" cols="25" id="remarque" name="remarque" value="Remarque">
+</textarea>
+
+</td>
+</tr>
+
+
+
+
+
+
+<tbody>
+</table>
+</div>
+    <div class="center">
+        <input type="submit" id="submit" class="button button-save" value="Enregistrer">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" class="button button-cancel" name="cancel" value="Annuler">
+
+    </div>
+</form>
+

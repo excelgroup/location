@@ -1,0 +1,105 @@
+<span id="message"></span>
+<span id="name_error"></span>
+<span id="email_error"></span>
+<span id="website_error"></span>
+<span id="comment_error"></span>
+<span id="gender_error"></span>
+<form id="myForm" action="" method="POST">
+<table class="centpercent notopnoleftnoright table-fiche-title">
+<tbody>
+<tr class="titre">
+<td class="nobordernopadding widthpictotitle valignmiddle col-picto">
+<span class="fas fa-cube valignmiddle widthpictotitle pictotitle" style=" color: #a69944;"></span>
+</td>
+<td class="nobordernopadding valignmiddle col-title">
+</td>
+</tr>
+<tbody>
+</table>
+<div class="tabBar tabBarWithBottom">
+<table class="border centpercent">
+<tbody>
+<tr>
+<td class="fieldrequired">Client</td>
+<td>
+<span class="fas fa-building" style=" color: #6c6aa8;"></span>
+<select name="client" id="client" class="flat statut form_data" required>
+<option value="{{data[0]['client']}}">{{data[0]['client']}}</option>
+{% for row in DATA %}
+    <option value="{{row['nom']}}">{{row['nom']}}</option>
+{% endfor %}
+</select> 
+<a href="/societe/card.php?action=create&amp;client=3&amp;fournisseur=0&amp;backtopage=%2Fdolibarr%2Fcommande%2Fcard.php%3Faction%3Dcreate"><span class="fa fa-plus-circle valignmiddle paddingleft" title="Créer tiers"></span></a>  
+</td>
+</tr>
+</form>
+
+
+<script>
+  // Function to handle form submission
+  function submitForm() {
+    document.getElementById('myForm').submit();
+  }
+
+  // Event listener for the select element
+  document.getElementById('client').addEventListener('change', function() {
+    submitForm();
+  });
+</script>
+
+
+<form id="sample_form" action="" method="POST">
+
+
+<tr>
+<td class="titlefieldcreate fieldrequired">Contrat</td>
+<td>
+<span class="fas fa-building" style=" color: #6c6aa8;"></span>
+<select name="contrat" id="contrat" class="flat statut form_data" required>
+<option value="">---contrat---</option>
+{% for row in data %} 
+    <option value="{{row['rowid']}}">C000{{row['rowid']}}</option>
+{% endfor %}
+</select>
+</td>
+</tr>
+    
+
+
+
+
+<tr>
+<td class="titlefieldcreate">Date</td>
+<td>
+<input type="date" id="date" name="date" class="maxwidth200 form_data" maxlength="128" value="" >
+</td>
+</tr>
+
+<script>
+document.getElementById("date").valueAsDate = new Date();
+</script>
+
+
+
+<tr>
+<td class="titlefieldcreate">Remarque</td>
+<td>
+<textarea rows="2" cols="25" id="rmq" name="rmq" value="Remarque">
+</textarea>
+
+</td>
+</tr>
+
+
+
+
+
+<tbody>
+</table>
+</div>
+    <div class="center">
+        <input type="submit" id="submit" class="button button-save" value="Enregistrer">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" class="button button-cancel" name="cancel" value="Annuler">
+    </div>
+</form>

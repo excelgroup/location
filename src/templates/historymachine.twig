@@ -1,0 +1,105 @@
+
+
+
+
+
+<form id="sample_form" action="" method="POST">
+<table class="centpercent notopnoleftnoright table-fiche-title">
+<tbody>
+<tr class="titre">
+<td class="nobordernopadding widthpictotitle valignmiddle col-picto">
+<span class="fas fa-cube valignmiddle widthpictotitle pictotitle" style=" color: #a69944;"></span>
+</td>
+<td class="nobordernopadding valignmiddle col-title">
+</td>
+</tr>
+<tbody>
+</table>
+<div class="tabBar tabBarWithBottom">
+<table class="border centpercent">
+<tbody>
+<tr>
+
+
+    
+<tr>
+<td class="titlefieldcreate fieldrequired">Seriel</td>
+<td>
+<input id="seriel" name="seriel" class="maxwidth200 form_data" maxlength="128" value="{{data['seriel']}}" required>
+</td>
+</tr>
+
+<tr>
+<td class="titlefieldcreate fieldrequired">Reference</td>
+<td>
+<input id="ref" name="ref" class="maxwidth200 form_data" maxlength="128" value="{{data['reference']}}" required>
+</td>
+</tr>
+
+<tr>
+<td class="titlefieldcreate fieldrequired">Louée</td>
+<td>
+{% if data['etat'] == 1 %}
+   <input type="checkbox" id="etat" name="etat" class="maxwidth200 form_data" maxlength="128" checked value="1">
+{% else %}
+   <input type="checkbox" id="etat" name="etat" class="maxwidth200 form_data" maxlength="128" value="1">
+{% endif %}
+</td>
+</tr>
+
+
+<tbody>
+</table>
+</div>
+    <div class="center">
+        <input type="submit" name="update" id="submit" class="button button-save" value="Modifier" onclick="window.location.reload()">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="delete" id="submit" class="button button-save" value="Supprimer">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" class="button button-cancel" name="Annuler" value="Annuler">
+    </div>
+</form>
+
+
+
+
+
+
+<table class="noborder centpercent">
+<tr class="liste_titre">
+<th>Contrat ID</th>
+<th>Client</th>
+<th>Contrat</th>
+
+</tr>
+{% for row in contrat %}
+     <tr class="oddeven">	
+                <td class="nowrap"><a href="/custom/location/views/editContrat.php?id={{row["rowid"]}}">C00{{row['rowid']}}</td>			
+                <td class="nowrap">{{row["client"]}}</td>				
+				<td class="nowrap">{{row['contact']}}</td>              
+                </tr>
+{% endfor %}
+</table><br>
+
+
+
+<table class="noborder centpercent">
+<tr class="liste_titre">
+<th>Intervention ID</th>
+<th>Contrat ID</th>
+<th>Type D'intervention</th>
+<th>Cout</th>
+<th>Remarque</th>
+        
+</tr>
+{% for row in inter %}
+     <tr class="oddeven">				
+                <td class="nowrap"><a href="/custom/location/views/editIntervention.php?id={{row["intervention_id"]}}">I000{{row["intervention_id"]}}</a></td>				
+				<td class="nowrap"><a href="/custom/location/views/editContrat.php?id={{row["contrat_id"]}}">C00{{row['contrat_id']}}</td>
+                <td class="nowrap">{{row['type_inter']}}</td>
+                <td class="nowrap">{{row['cout']}}</td>
+                <td class="nowrap">{{row['remarque']}}</td>
+
+                </tr>
+{% endfor %}
+</table><br>

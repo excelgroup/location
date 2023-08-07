@@ -1,0 +1,17 @@
+<table class="noborder centpercent">
+<tr class="liste_titre">
+<th>Intervention ID</th>
+<th>Contrat ID</th> 
+<th>DATE</th>     
+<th>Cout</th>     
+</tr>
+{% for row in data %}
+     <tr class="oddeven">				
+                <td class="nowrap"><a href="/custom/location/views/editIntervention.php?id={{row["rowid"]}}">I00{{row["rowid"]}}</a></td>				
+				<td class="nowrap">C00{{row['contrat_id']}}</td>
+                <td class="nowrap">{{row['date_i']}}</td>
+                <td class="nowrap">{{row['cout']}}</td>
+                </tr>
+{% endfor %}
+</table>
+<br>

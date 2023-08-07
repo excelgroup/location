@@ -1,0 +1,51 @@
+
+<form id="sample_form" action="" method="POST">
+<table class="centpercent notopnoleftnoright table-fiche-title">
+<tbody>
+<tr class="titre">
+<td class="nobordernopadding widthpictotitle valignmiddle col-picto">
+<span class="fas fa-cube valignmiddle widthpictotitle pictotitle" style=" color: #a69944;"></span>
+</td>
+<td class="nobordernopadding valignmiddle col-title">
+</td>
+</tr>
+<tbody>
+</table>
+<div class="tabBar tabBarWithBottom">
+<table class="border centpercent">
+<tbody>
+
+<tr>
+<td class="titlefieldcreate fieldrequired">Référence</td>
+<td>
+<span class="fas fa-building" style=" color: #6c6aa8;"></span>
+<select name="ref" id="ref" class="flat statut form_data">
+<option value="{{DATA['ref']}}">{{DATA['ref']}}</option>
+b{% for row in DATA['form'] %}
+                <option value="{{row['ref']}}">{{row['ref']}}</option>
+
+{% endfor %}
+</select>
+</td>
+</tr>
+    
+
+
+<tr>
+<td class="titlefieldcreate fieldrequired">Seriel</td>
+<td>
+<input id="seriel" name="seriel" class="maxwidth200 form_data" maxlength="128" value="{{DATA['seriel']}}" required>
+</td>
+</tr>
+
+<tbody>
+</table>
+</div>
+<div class="center">
+<input type="submit" name="update" id="submit" class="button button-save"  value="Modifier"onclick="window.location.reload()">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" name="delete" id="submit" class="button button-save"  value="Supprimer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="reset"  class="button button-cancel" name="Annuler" value="Annuler">
+</div>
+</form>

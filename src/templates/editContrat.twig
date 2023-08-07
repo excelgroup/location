@@ -1,0 +1,138 @@
+<span id="message"></span>
+<span id="name_error"></span>
+<span id="email_error"></span>
+<span id="website_error"></span>
+<span id="comment_error"></span>
+<span id="gender_error"></span>
+<form id="sample_form" action="" method="POST">
+<table class="centpercent notopnoleftnoright table-fiche-title">
+<tbody>
+<tr class="titre">
+<td class="nobordernopadding widthpictotitle valignmiddle col-picto">
+<span class="fas fa-cube valignmiddle widthpictotitle pictotitle" style=" color: #a69944;"></span>
+</td>
+<td class="nobordernopadding valignmiddle col-title">
+</td>
+</tr>
+<tbody>
+</table>
+<div class="tabBar tabBarWithBottom">
+<table class="border centpercent">
+<tbody>
+<tr>
+<td class="fieldrequired">Client</td>
+<td>
+
+<span class="fas fa-building" style=" color: #6c6aa8;"></span>
+<select name="client" id="client" class="flat statut form_data" required>
+<option value="{{DATA['data']['client']}}">{{DATA['data']['client']}}</option>
+{% for row in DATA['dataform'] %}
+    <option value="{{row['nom']}}">{{row['nom']}}</option>
+{% endfor %}
+</select> 
+<a href="/societe/card.php?action=create&amp;client=3&amp;fournisseur=0&amp;backtopage=%2Fdolibarr%2Fcommande%2Fcard.php%3Faction%3Dcreate"><span class="fa fa-plus-circle valignmiddle paddingleft" title="Créer tiers"></span></a>  
+</td>
+</tr>
+
+
+<tr>
+<td class="titlefieldcreate">Durée</td>
+<td>
+
+<select id="durée" name="durée" class="flat statut form_data">
+<option value="{{DATA['data']['durée']}}">{{DATA['data']['durée']}}</option>
+<option value="12">12</option>
+<option value="24">24</option>
+<option value="36">36</option>
+
+</select>
+</td>
+</tr>
+
+
+<tr>
+<td class="titlefieldcreate">Date</td>
+<td>
+<input type="date" id="date" name="date" class="maxwidth200 form_data" maxlength="128" value="{{DATA['data']['date_c']}}" >
+</td>
+</tr>
+
+<script>
+document.getElementById("date").valueAsDate = new Date();
+</script>
+
+
+<tr>
+<td class="titlefieldcreate">contact</td>
+<td>
+<input id="contact" name="contact" class="maxwidth200 form_data" maxlength="128" value="{{DATA['data']['contact']}}">
+</td>
+</tr>
+
+
+<tr>
+<td class="titlefieldcreate">Remarque</td>
+<td>
+<textarea rows="2" cols="25" id="remarque" name="remarque" >
+{{DATA['data']['remarque']}}
+</textarea>
+
+</td>
+</tr>
+
+
+
+
+
+<tbody>
+</table>
+</div>
+    <div class="center">
+        <input type="submit" name="update" id="submit" class="button button-save" value="Modifier" onclick="window.location.reload()">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="delete" id="submit" class="button button-save" value="Supprimer">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" class="button button-cancel" name="Annuler" value="Annuler">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="contratpdf.php?idc={{DATA['data']['rowid']}}" class="button button-save">Imprimer</a>
+    </div>
+    
+</form>
+
+<button id="main1" class="button button-save" value="/custom/location/views/addannex.php?id={{DATA['id']}}">Ajouter Annex</button>
+
+
+
+
+
+<table class="noborder centpercent">
+<tr class="liste_titre">
+<th>Reference</th>
+<th>Qte</th>
+        
+</tr>
+{% for row in DATA['annex'] %}
+     <tr class="oddeven">				
+                <td class="nowrap"><a href="/custom/location/views/editannex.php?id={{row["rowid"]}}&idc={{DATA['id']}}">{{row["reference"]}}</a></td>				
+				<td class="nowrap">{{row['qte']}}</td>
+                </tr>
+{% endfor %}
+</table><br>
+
+
+<button id="main" class="button button-save" value="/custom/location/views/addmachine.php?id={{DATA['id']}}">Ajouter Machine</button>
+
+<table class="noborder centpercent">
+<tr class="liste_titre">
+
+<th>Référence</th>
+<th>Seriel</th>
+        
+</tr>
+{% for row in DATA['machine'] %}
+     <tr class="oddeven">	
+                <td class="nowrap">{{row['reference']}}</td>						
+				<td class="nowrap"><a href="/custom/location/views/editmachine.php?id={{row["rowid"]}}&idc={{DATA['id']}}">{{row['seriel']}}</td></a>               
+                </tr>
+{% endfor %}
+</table><br>
